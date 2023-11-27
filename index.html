@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+</head>
+<body>
+    <div id="main-img-wrapper">
+        <img width="320" src="./imgs/lovepik.png" alt="coding image">
+    </div>
+    <div id="intro-main">
+        <p>이미 모두의 은행, 세희뱅크</p>
+        <p>함께 일해요.</p>
+        <p id="join-us-text">
+            Join us!
+        </p>
+        <img id="down-arrow-icon" src="./imgs/down-arrow.png" alt="down-arrow icon">
+    </div>
+    <ul id="list-item-wrapper">
+        <li class="list-item">26주적금</li>
+        <li class="list-item">저금</li>
+        <li class="list-item">예금</li>
+        <li class="list-item">김세희</li>
+        <li class="list-item">짱짱걸</li>
+        <li class="list-item">마라탕</li>
+        <li class="list-item">맛있다</li>
+        <li class="list-item">콜라</li>
+        <li class="list-item">귀여웡</li>
+        <li class="list-item">벌써</li>
+        <li class="list-item">12월이라니</li>
+        <li class="list-item">거짓말같아</li>
+        <li class="list-item">2024년엔</li>
+        <li class="list-item">더욱더</li>
+        <li class="list-item">파이팅하자</li>
+        <li class="list-item">복권당첨</li>
+        <li class="list-item">가즈아</li>
+        <li class="list-item">26주적금</li>
+        <li class="list-item">저금</li>
+        <li class="list-item">예금</li>
+        <li class="list-item">김세희</li>
+        <li class="list-item">짱짱걸</li>
+        <li class="list-item">마라탕</li>
+        <li class="list-item">맛있다</li>
+        <li class="list-item">콜라</li>
+        <li class="list-item">귀여웡</li>
+        <li class="list-item">벌써</li>
+        <li class="list-item">12월이라니</li>
+        <li class="list-item">거짓말같아</li>
+        <li class="list-item">2024년엔</li>
+        <li class="list-item">더욱더</li>
+        <li class="list-item">파이팅하자</li>
+        <li class="list-item">복권당첨</li>
+        <li class="list-item">가즈아</li>
+        <li class="list-item">26주적금</li>
+        <li class="list-item">저금</li>
+        <li class="list-item">예금</li>
+        <li class="list-item">김세희</li>
+        <li class="list-item">짱짱걸</li>
+        <li class="list-item">마라탕</li>
+        <li class="list-item">맛있다</li>
+        <li class="list-item">콜라</li>
+        <li class="list-item">귀여웡</li>
+        <li class="list-item">벌써</li>
+        <li class="list-item">12월이라니</li>
+        <li class="list-item">거짓말같아</li>
+        <li class="list-item">2024년엔</li>
+        <li class="list-item">더욱더</li>
+        <li class="list-item">파이팅하자</li>
+        <li class="list-item">복권당첨</li>
+        <li class="list-item">가즈아</li>
+    </ul>
+    <main>
+        <section id="panel1-img">
+            <img id="flying-santa-img" src="./imgs/santa_flying.png" alt="santa flying">
+        </section>
+    </main>
+</body>
+
+<script>
+    const listStyleChangeStartY = 373
+    const listStyleChangeEndY = 2300
+
+    const listItems = document.querySelectorAll('.list-item')
+    const division = (listStyleChangeEndY - listStyleChangeStartY) / listItems.length
+
+    const panel1img = document.getElementById('panel1-img')
+    const flyingSantaImg = document.getElementById('flying-santa-img')
+
+    window.addEventListener("scroll", ()=>{
+
+
+        if(document.getElementById("on")) document.getElementById("on").removeAttribute("id")
+
+        if(window.scrollY > listStyleChangeStartY && window.scrollY < listStyleChangeEndY){
+            const targetIndex = Math.round((window.scrollY - listStyleChangeStartY) / division)
+            
+            if (listItems[targetIndex]) listItems[targetIndex].id = "on"
+        }
+
+        const scrollYBottom = window.scrollY + document.documentElement.clientHeight
+
+        if (scrollYBottom > panel1img.offsetTop && scrollYBottom < panel1img.offsetTop + panel1img.offsetHeight + 100) {
+            const translateX = 80 - 80 * 1.2 * (scrollYBottom - panel1img.offsetTop) / (panel1img.offsetHeight + 100)
+            const translateY = -13 + 13 * (scrollYBottom - panel1img.offsetTop) / (panel1img.offsetHeight + 100)
+
+            const rotationDegree = 23 - 23 * 1.9 * (scrollYBottom - panel1img.offsetTop) / (panel1img.offsetHeight + 100)
+
+            flyingSantaImg.style.transform = `translate(${translateX}px, ${translateY}px) rotate(${rotationDegree}deg)`
+        }
+    })
+</script>
+</html>
